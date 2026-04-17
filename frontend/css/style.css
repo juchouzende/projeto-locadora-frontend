@@ -3,30 +3,71 @@
    Configurações base que afetam toda a aplicação.
    O Bootstrap já cuida da maioria — aqui ficam os ajustes finos.
    ============================================================ */
+body {
+   background-color: #f8f9fa;
+   font-family: 'Segoe UI', Tahoma, sans-serif;
 
-
-/* 1ª Digitação (Aqui) */
-
-
-
+   /*Flex no body para garantir que o footer fique sempre no fundo, mesmo quando há pouco conteúdo na página*/
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+}
 /* ============================================================
    TELA DE LOGIN
    ============================================================ */
 
+/* Container centralizado com largura máxima na tela de login */
+.login-container {
+   max-width: 400px;
+   margin: 80px auto;
+}
 
+/* Cabeçalho dos cards de login */
+.card-header-blue {
+   background-color: #0d6efd;
+   color: white;
+   font-weight: bold;
+}
 
+/* Caixa azul clara de informações (ex: credenciais de teste) */
+.info-box {
+   background-color: #e7f1ff;
+   border-radius: 6px;
+   padding: 15px;
+}
 
 /* ============================================================
    TABELA DO PAINEL ADMINISTRATIVO
    ============================================================ */
 
+/* Evita que os botões de ação na tabela quebrem para a linha de baixo*/
+.table-actions {
+   white-space: nowrap;
+}
 
+/* Campo numérico compacto usado dentro da tabela */
+.table-actions input[type="number"] {
+   width: 80px;
+   text-align: center;
+}
 
 /* ============================================================
    IMAGENS DE VEÍCULOS
    ============================================================ */
 
+/* Miniatura quadrada usada na tabela do painel administrativo */
+.admin-mini-img {
+   width: 60px;
+   height: 60px;
 
+/*object-fit: cover recorta a imagem para preencher o espaço sem distorcer */
+   object-fit: cover;
+   border-radius: 8px;
+   border-radius: 8px;
+   border: 1px solid #ccc;
+   background-color: #fff;
+   padding: 2px;
+}
 
 /* ============================================================
    VITRINE PÚBLICA — HERO BANNER
@@ -46,3 +87,29 @@
    VITRINE PÚBLICA — CARDS DE VEÍCULOS
    ============================================================ */
 
+/* Imagem dos cards com altura fixa para uniformidade visual */
+.vitrine-img {
+   height: 240px;
+   width: 100%;
+   object-fit: cover;
+
+   /* Transição suave para o efeito de zoom ao passar o mouse */
+   transition: transform 0.4s ease;
+}
+
+/* Card com animação de elevação ao passar o mouse */
+.card-hover:hover {
+   transition: all 0.3s ease;
+   cursor: pointer;
+}
+
+/* Ao passar o mouse: sobe o card e adiciona sombra mais forte*/
+.card-hover:hover {
+   transform: translateY(-8px);
+   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); !important;
+}
+
+/* Zoom leve na imagem sincronizado com o hover do card */
+.card-hover:hover .vitrine-img {
+   transform: scale(1.05);
+}
